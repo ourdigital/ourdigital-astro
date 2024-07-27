@@ -1,0 +1,26 @@
+---
+import axios from 'axios';
+
+let posts = [];
+
+async function fetchPosts() {
+  try {
+    const response = await axios.get('https://ourdigital.org/wp-json/wp/v2/posts');
+    posts = response.data;
+  } catch (error) {
+    console.error('Error fetching posts:', error);
+  }
+}
+
+await fetchPosts();
+---
+
+<div>
+  <h1>WordPress Posts fetched by APIs</h1>
+  {posts.map(post => (
+    <article key={post.id}>
+      <h2>{post.title.rendered}</h2>
+      <div innerHTML={post.excerpt.rendered}></div>
+    </article>
+  ))}
+</div>

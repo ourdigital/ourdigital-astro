@@ -1,0 +1,38 @@
+---
+import axios from 'axios';
+
+const { id } = Astro.params; // Access the dynamic parameter from the URL
+
+let post = null;
+let error = null;
+
+async function fetchPost() {
+  try {
+    const response = await axios.get(`https://ourdigital.org/wp-json/wp/v2/posts/${id}`);
+    post = response.data;
+  } catch (err) {
+    error = 'Error fetching post';
+    console.error('Error fetching post:', err);
+  }
+}
+
+await fetchPost();
+---
+
+<html>
+  <head>
+    <title>{post ? post.title.rendered : 'Loading...'}</title>
+  </head>
+  <body>
+    {post ? (
+      <div>
+        <h1>{post.title.rendered}</h1>
+        <div innerHTML={post.content.rendered}></div>
+      </div>
+    ) : (
+      <div>
+        <p>{error ? error : 'Loading...'}</p>
+      </div>
+    )}
+  </body>
+</html>
