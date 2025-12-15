@@ -1,11 +1,9 @@
 import { defineConfig } from 'astro/config';
-import cloudflare from '@astrojs/cloudflare';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://www.ourdigital.org',
+  site: 'https://dev.ourdigital.org',
   output: 'static',
-  adapter: cloudflare(),
   i18n: {
     defaultLocale: 'ko',
     locales: ['ko', 'en'],
