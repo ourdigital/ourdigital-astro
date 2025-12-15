@@ -1,0 +1,21 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  icon: string;
+  href: string;
+}
+
+const { title, description, icon, href } = Astro.props;
+---
+
+<div class="service-card">
+  <div class="service-card-icon">
+    <i data-lucide={icon}></i>
+  </div>
+  <h3>{title}</h3>
+  <p>{description}</p>
+  <a href={href} class="card-link">
+    자세히 보기 <i data-lucide="arrow-right" width="16" height="16"></i>
+  </a>
+</div>

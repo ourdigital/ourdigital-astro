@@ -1,0 +1,15 @@
+---
+interface Props {
+  overline?: string;
+  title: string;
+  description?: string;
+}
+
+const { overline, title, description } = Astro.props;
+---
+
+<div class="section-header">
+  {overline && <span class="overline">{overline}</span>}
+  <h2>{title}</h2>
+  {description && <p>{description}</p>}
+</div>

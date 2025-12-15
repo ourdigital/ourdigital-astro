@@ -1,0 +1,42 @@
+---
+const navItems = [
+  { href: '/services', label: '서비스' },
+  { href: '/insights', label: '인사이트' },
+  { href: '/lab', label: 'Lab' },
+  { href: '/about', label: '소개' },
+];
+---
+
+<header class="header">
+  <div class="container header-inner">
+    <a href="/" class="logo">OurDigital<span>.</span></a>
+
+    <nav class="nav" id="nav">
+      {navItems.map((item) => (
+        <a href={item.href}>{item.label}</a>
+      ))}
+      <a href="/contact" class="nav-cta">상담 예약</a>
+    </nav>
+
+    <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="메뉴 열기">
+      <i data-lucide="menu" width="24" height="24"></i>
+    </button>
+  </div>
+</header>
+
+<script>
+  function initMobileNav() {
+    const btn = document.getElementById('mobile-menu-btn');
+    const nav = document.getElementById('nav');
+
+    btn?.addEventListener('click', () => {
+      nav?.classList.toggle('active');
+    });
+  }
+
+  // Initialize on page load
+  initMobileNav();
+
+  // Re-initialize on Astro page navigation
+  document.addEventListener('astro:page-load', initMobileNav);
+</script>

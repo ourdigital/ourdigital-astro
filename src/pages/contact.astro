@@ -1,0 +1,77 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import PageHeader from '@components/PageHeader.astro';
+---
+
+<BaseLayout
+  title="문의"
+  description="OurDigital Clinic에 문의하세요. 첫 상담은 무료입니다."
+>
+  <PageHeader
+    title="문의하기"
+    description="디지털 마케팅의 고민, 부담 없이 나눠주세요. 첫 상담은 무료입니다."
+    breadcrumbs={[{ label: '문의' }]}
+  />
+
+  <section class="section">
+    <div class="container container-sm">
+      <div class="card" style="padding: var(--space-8);">
+        <form>
+          <div class="form-group">
+            <label class="form-label" for="name">이름 *</label>
+            <input type="text" id="name" name="name" class="form-input" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="email">이메일 *</label>
+            <input type="email" id="email" name="email" class="form-input" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="company">회사명</label>
+            <input type="text" id="company" name="company" class="form-input">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="service">관심 서비스</label>
+            <select id="service" name="service" class="form-select">
+              <option value="">선택해주세요</option>
+              <option value="seo">SEO & Digital Growth</option>
+              <option value="content">Content Marketing</option>
+              <option value="performance">Performance Marketing</option>
+              <option value="brand">Brand Intelligence</option>
+              <option value="other">기타</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="message">문의 내용 *</label>
+            <textarea id="message" name="message" class="form-textarea" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+            상담 신청하기
+          </button>
+        </form>
+      </div>
+
+      <div class="grid grid-2 mt-8">
+        <div class="card text-center">
+          <div class="card-icon" style="margin: 0 auto var(--space-4);">
+            <i data-lucide="mail" width="24" height="24"></i>
+          </div>
+          <h4>이메일</h4>
+          <a href="mailto:hello@ourdigital.org">hello@ourdigital.org</a>
+        </div>
+
+        <div class="card text-center">
+          <div class="card-icon" style="margin: 0 auto var(--space-4);">
+            <i data-lucide="phone" width="24" height="24"></i>
+          </div>
+          <h4>전화</h4>
+          <a href="tel:010-2744-1148">010-2744-1148</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

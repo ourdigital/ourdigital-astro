@@ -1,0 +1,86 @@
+---
+const services = [
+  { href: '/services/seo', label: 'SEO & Digital Growth' },
+  { href: '/services/content-marketing', label: 'Content Marketing' },
+  { href: '/services/performance-marketing', label: 'Performance Marketing' },
+  { href: '/services/brand-intelligence', label: 'Brand Intelligence' },
+];
+
+const company = [
+  { href: '/about', label: '소개' },
+  { href: '/insights', label: '인사이트' },
+  { href: '/lab', label: 'Lab / Community' },
+  { href: '/contact', label: '문의' },
+];
+
+const legal = [
+  { href: '/privacy-policy', label: '개인정보처리방침' },
+  { href: '/terms', label: '이용약관' },
+  { href: '/cookies', label: '쿠키 정책' },
+];
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <!-- Brand -->
+      <div class="footer-brand">
+        <a href="/" class="logo">OurDigital<span>.</span></a>
+        <p>
+          데이터 인텔리전스로 브랜드 경험을 그리는<br>
+          디지털 마케팅 클리닉
+        </p>
+        <div class="social-links">
+          <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <i data-lucide="linkedin" width="20" height="20"></i>
+          </a>
+          <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube">
+            <i data-lucide="youtube" width="20" height="20"></i>
+          </a>
+          <a href="https://blog.ourdigital.org" target="_blank" rel="noopener" aria-label="Blog">
+            <i data-lucide="rss" width="20" height="20"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Services -->
+      <div class="footer-col">
+        <h4 class="footer-title">Services</h4>
+        <div class="footer-links">
+          {services.map((item) => (
+            <a href={item.href}>{item.label}</a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Company -->
+      <div class="footer-col">
+        <h4 class="footer-title">Company</h4>
+        <div class="footer-links">
+          {company.map((item) => (
+            <a href={item.href}>{item.label}</a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <div class="footer-col">
+        <h4 class="footer-title">Contact</h4>
+        <div class="footer-links">
+          <a href="mailto:hello@ourdigital.org">hello@ourdigital.org</a>
+          <a href="tel:010-2744-1148">010-2744-1148</a>
+          <a href="https://blog.ourdigital.org" target="_blank" rel="noopener">blog.ourdigital.org</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; {new Date().getFullYear()} OurDigital. All rights reserved.</p>
+      <div class="footer-legal">
+        {legal.map((item) => (
+          <a href={item.href}>{item.label}</a>
+        ))}
+      </div>
+    </div>
+  </div>
+</footer>

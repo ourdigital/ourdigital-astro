@@ -1,0 +1,42 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import PageHeader from '@components/PageHeader.astro';
+---
+
+<BaseLayout title="개인정보처리방침">
+  <PageHeader
+    title="개인정보처리방침"
+    breadcrumbs={[{ label: '개인정보처리방침' }]}
+  />
+
+  <section class="section">
+    <div class="container container-sm">
+      <div class="card" style="padding: var(--space-8);">
+        <h2>1. 개인정보의 수집 및 이용 목적</h2>
+        <p>OurDigital(이하 "회사")은 다음의 목적을 위하여 개인정보를 처리합니다.</p>
+        <ul style="margin: var(--space-4) 0; padding-left: var(--space-5); list-style: disc;">
+          <li>서비스 제공 및 상담</li>
+          <li>고객 문의 응대</li>
+          <li>마케팅 및 광고 활용 (동의 시)</li>
+        </ul>
+
+        <h2 style="margin-top: var(--space-8);">2. 수집하는 개인정보 항목</h2>
+        <p>회사는 서비스 제공을 위해 다음과 같은 개인정보를 수집합니다.</p>
+        <ul style="margin: var(--space-4) 0; padding-left: var(--space-5); list-style: disc;">
+          <li>필수: 이름, 이메일 주소</li>
+          <li>선택: 회사명, 전화번호</li>
+        </ul>
+
+        <h2 style="margin-top: var(--space-8);">3. 개인정보의 보유 및 이용 기간</h2>
+        <p>회사는 개인정보 수집 및 이용목적이 달성된 후에는 해당 정보를 지체 없이 파기합니다.</p>
+
+        <h2 style="margin-top: var(--space-8);">4. 문의</h2>
+        <p>개인정보 관련 문의: <a href="mailto:hello@ourdigital.org">hello@ourdigital.org</a></p>
+
+        <p style="margin-top: var(--space-8); color: var(--color-text-gray); font-size: 0.875rem;">
+          시행일: 2024년 1월 1일
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

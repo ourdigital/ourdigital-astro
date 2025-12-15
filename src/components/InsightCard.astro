@@ -1,0 +1,42 @@
+---
+interface Props {
+  title: string;
+  excerpt: string;
+  category: string;
+  date: string;
+  image?: string;
+  href?: string;
+}
+
+const { title, excerpt, category, date, image, href = '#' } = Astro.props;
+---
+
+<article class="insight-card">
+  <a href={href}>
+    <div class="insight-card-image">
+      {image ? (
+        <img src={image} alt={title} />
+      ) : (
+        <span>Featured Image<br>400 × 200</span>
+      )}
+    </div>
+    <div class="insight-card-body">
+      <span class="insight-card-category">{category}</span>
+      <h3 class="insight-card-title">{title}</h3>
+      <p class="insight-card-excerpt">{excerpt}</p>
+      <span class="insight-card-meta">{date}</span>
+    </div>
+  </a>
+</article>
+
+<style>
+  .insight-card a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
+  .insight-card a:hover {
+    color: inherit;
+  }
+</style>

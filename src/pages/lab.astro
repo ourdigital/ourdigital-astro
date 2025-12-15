@@ -1,0 +1,78 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import PageHeader from '@components/PageHeader.astro';
+import SectionHeader from '@components/SectionHeader.astro';
+
+const resources = [
+  {
+    title: 'SEO 체크리스트',
+    description: '웹사이트 SEO 상태를 점검할 수 있는 체크리스트입니다.',
+    badge: 'Template',
+    href: '#'
+  },
+  {
+    title: 'GA4 설정 가이드',
+    description: 'GA4 기본 설정부터 전환 추적까지 단계별 가이드입니다.',
+    badge: 'Guide',
+    href: '#'
+  },
+  {
+    title: '콘텐츠 캘린더 템플릿',
+    description: '에디토리얼 캘린더를 위한 구글 시트 템플릿입니다.',
+    badge: 'Template',
+    href: '#'
+  },
+  {
+    title: 'AORI 브랜드 진단 도구',
+    description: '브랜드 가시성을 자가 진단할 수 있는 간단한 도구입니다.',
+    badge: 'Tool',
+    href: '#'
+  }
+];
+---
+
+<BaseLayout
+  title="Lab"
+  description="디지털 마케팅을 위한 무료 리소스와 커뮤니티"
+>
+  <PageHeader
+    title="Lab / Community"
+    description="디지털 마케팅을 위한 무료 리소스와 커뮤니티"
+    breadcrumbs={[{ label: 'Lab' }]}
+  />
+
+  <section class="section">
+    <div class="container">
+      <SectionHeader
+        overline="Free Resources"
+        title="무료 리소스"
+        description="디지털 마케팅 실무에 바로 활용할 수 있는 템플릿과 가이드를 제공합니다."
+      />
+
+      <div class="grid grid-2">
+        {resources.map((resource) => (
+          <div class="resource-card">
+            <span class="resource-card-badge">{resource.badge}</span>
+            <h3>{resource.title}</h3>
+            <p>{resource.description}</p>
+            <a href={resource.href} class="card-link">
+              다운로드 <i data-lucide="download" width="16" height="16"></i>
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-gray">
+    <div class="container text-center">
+      <SectionHeader
+        overline="Community"
+        title="커뮤니티 (준비 중)"
+        description="디지털 마케팅에 관심 있는 분들과 함께하는 커뮤니티를 준비하고 있습니다."
+      />
+
+      <a href="/contact" class="btn btn-primary">소식 받기</a>
+    </div>
+  </section>
+</BaseLayout>

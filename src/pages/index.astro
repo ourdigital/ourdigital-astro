@@ -1,0 +1,157 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import ServiceCard from '@components/ServiceCard.astro';
+import InsightCard from '@components/InsightCard.astro';
+import SectionHeader from '@components/SectionHeader.astro';
+
+const services = [
+  {
+    title: 'SEO & Digital Growth',
+    description: '검색 엔진에서 발견되고, 의미 있는 트래픽을 유도합니다. 기술적 SEO부터 콘텐츠 최적화까지.',
+    icon: 'search',
+    href: '/services/seo'
+  },
+  {
+    title: 'Content Marketing',
+    description: '브랜드의 이야기를 전략적으로 설계하고 실행합니다. FLOW 프레임워크 기반 콘텐츠 전략.',
+    icon: 'file-text',
+    href: '/services/content-marketing'
+  },
+  {
+    title: 'Performance Marketing',
+    description: '측정 가능한 성과를 만들어냅니다. MEASURE 프레임워크로 데이터 기반 의사결정을 지원합니다.',
+    icon: 'bar-chart-3',
+    href: '/services/performance-marketing'
+  },
+  {
+    title: 'Brand Intelligence',
+    description: '디지털 시대의 브랜드 건강을 진단합니다. AORI 프레임워크로 브랜드 가시성을 측정하고 개선합니다.',
+    icon: 'target',
+    href: '/services/brand-intelligence'
+  }
+];
+
+const insights = [
+  {
+    title: '2025년 SEO 트렌드: AI와 검색의 미래',
+    excerpt: '생성형 AI의 등장으로 검색 환경이 급변하고 있습니다. AEO(Answer Engine Optimization)와 GEO(Generative Engine Optimization)가 새로운 표준이 되고 있습니다.',
+    category: 'SEO',
+    date: '2024년 12월 10일'
+  },
+  {
+    title: 'GA4 마이그레이션 완료 후 점검해야 할 5가지',
+    excerpt: 'UA에서 GA4로 전환했다면 이제 본격적인 활용 단계입니다. 데이터 품질을 보장하고 인사이트를 얻기 위한 필수 점검 사항을 정리했습니다.',
+    category: 'Analytics',
+    date: '2024년 12월 5일'
+  },
+  {
+    title: '콘텐츠 ROI 측정: 실무자를 위한 가이드',
+    excerpt: '"콘텐츠 마케팅의 효과를 어떻게 증명하나요?" 가장 많이 받는 질문에 대한 실질적인 답변과 측정 프레임워크를 소개합니다.',
+    category: 'Content',
+    date: '2024년 11월 28일'
+  }
+];
+---
+
+<BaseLayout title="데이터 기반 디지털 마케팅 클리닉">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <span class="hero-tagline">Your Digital Health Partner</span>
+        <h1 class="display">데이터로 진단하고,<br>실행으로 처방합니다</h1>
+        <p class="lead">
+          25년 경력의 마케팅 사이언티스트가 중소기업, 프리랜서, 비영리단체의
+          디지털 성장을 과학적으로 돕습니다. 추측이 아닌 데이터로,
+          계획이 아닌 실행으로.
+        </p>
+        <div class="hero-buttons">
+          <a href="/contact" class="btn btn-primary btn-lg">무료 상담 예약</a>
+          <a href="/services" class="btn btn-secondary btn-lg">서비스 살펴보기</a>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <span>Hero Image Placeholder<br>1200 × 400</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Preview -->
+  <section class="section">
+    <div class="container">
+      <SectionHeader
+        overline="Our Services"
+        title="디지털 성장을 위한 4가지 처방전"
+        description="각 비즈니스의 디지털 건강 상태를 진단하고, 맞춤형 처방을 제공합니다."
+      />
+
+      <div class="grid grid-4">
+        {services.map((service) => (
+          <ServiceCard {...service} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- About Preview -->
+  <section class="section section-gray">
+    <div class="container">
+      <div class="about-preview">
+        <div class="about-image">
+          <img src="https://via.placeholder.com/400x400?text=Dr.D" alt="Andrew Yim (Dr.D)">
+        </div>
+        <div class="about-content">
+          <span class="overline">Dr.D / Andrew Yim</span>
+          <h2>마케팅 사이언티스트,<br>임명재입니다</h2>
+          <p>
+            인터넷의 탄생과 디지털 전환의 전 과정을 함께 하며,
+            디지털 전략가로서, 캠페인 디렉터로서 25년간 마케팅 현장에서 열정을 쏟았습니다.
+          </p>
+          <p>
+            GS칼텍스, 조선호텔, 코카콜라, 아우디폭스바겐 등 다양한 브랜드와 함께
+            디지털 커뮤니케이션의 새로운 가능성을 탐구해왔습니다.
+            이제 그 경험을 중소기업과 나누고자 합니다.
+          </p>
+          <a href="/about" class="btn btn-secondary">더 알아보기</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest Insights -->
+  <section class="section">
+    <div class="container">
+      <SectionHeader
+        overline="Insights"
+        title="최신 인사이트"
+        description="디지털 마케팅의 트렌드와 실전 노하우를 공유합니다."
+      />
+
+      <div class="grid grid-3">
+        {insights.map((insight) => (
+          <InsightCard {...insight} />
+        ))}
+      </div>
+
+      <div class="text-center mt-8">
+        <a href="/insights" class="btn btn-secondary">모든 인사이트 보기</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>디지털 건강 검진,<br>지금 시작하세요</h2>
+      <p>
+        첫 상담은 무료입니다. 현재 디지털 마케팅 현황을 진단하고,
+        개선 방향에 대해 함께 이야기 나눠보겠습니다.
+      </p>
+      <div class="cta-buttons">
+        <a href="/contact" class="btn btn-primary btn-lg">무료 상담 예약</a>
+        <a href="/services" class="btn btn-outline-white btn-lg">서비스 안내</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

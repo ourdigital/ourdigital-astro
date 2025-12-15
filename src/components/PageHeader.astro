@@ -1,0 +1,36 @@
+---
+interface Breadcrumb {
+  label: string;
+  href?: string;
+}
+
+interface Props {
+  title: string;
+  description?: string;
+  breadcrumbs?: Breadcrumb[];
+}
+
+const { title, description, breadcrumbs = [] } = Astro.props;
+---
+
+<section class="page-header">
+  <div class="container">
+    {breadcrumbs.length > 0 && (
+      <nav class="breadcrumb">
+        <a href="/">홈</a>
+        {breadcrumbs.map((crumb, index) => (
+          <>
+            <span>/</span>
+            {index === breadcrumbs.length - 1 ? (
+              <span class="current">{crumb.label}</span>
+            ) : (
+              <a href={crumb.href}>{crumb.label}</a>
+            )}
+          </>
+        ))}
+      </nav>
+    )}
+    <h1>{title}</h1>
+    {description && <p class="lead">{description}</p>}
+  </div>
+</section>

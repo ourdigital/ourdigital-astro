@@ -1,0 +1,128 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import PageHeader from '@components/PageHeader.astro';
+import SectionHeader from '@components/SectionHeader.astro';
+
+const timeline = [
+  { year: '1998 - 2006', title: '디지털 여명기', description: 'SKT 011 리더스클럽, 삼성전자, LG전자 등 대기업 브랜드 커뮤니티 구축 및 운영. 인터넷 태동기부터 디지털 마케팅의 기반을 다짐.' },
+  { year: '2007 - 2013', title: '소셜 미디어 시대', description: '강남구청 블로그, 기아자동차 글로벌 소셜 미디어, LG 모바일 글로벌 디지털 마케팅 담당. 소셜 미디어 마케팅 전략 수립과 실행.' },
+  { year: '2014 - 2019', title: '데이터 & 캠페인', description: 'GS칼텍스 디지털 커뮤니케이션 총괄, 평창올림픽 응원 캠페인, Audi Volkswagen 디지털 커뮤니케이션. 데이터 기반 캠페인 전략 고도화.' },
+  { year: '2020 - 현재', title: '데이터 인텔리전스', description: '청와대 여론 분석 연구, 코카-콜라 Social Listening, 조선호텔 SEO 컨설팅. 데이터 분석과 컨설팅 중심으로 전환, OurDigital Clinic 시작.' }
+];
+
+const clients = [
+  { category: '에너지 & 화학', names: 'GS칼텍스, KCC' },
+  { category: '호텔 & 호스피탈리티', names: '조선호텔앤리조트, 파르나스호텔, 레스케이프호텔' },
+  { category: '자동차', names: '기아자동차, 아우디폭스바겐코리아, 캘러웨이골프' },
+  { category: 'FMCG & 뷰티', names: '코카-콜라, 하겐다즈, 아모레퍼시픽' },
+  { category: '테크 & 전자', names: '삼성전자, LG전자, 한국마이크로소프트' },
+  { category: '공공기관', names: '청와대, 서울특별시, 문화체육관광부' }
+];
+---
+
+<BaseLayout
+  title="소개"
+  description="OurDigital Clinic 소개. 25년 디지털 마케팅 전문가 Andrew Yim(임명재)이 이끄는 데이터 기반 디지털 마케팅 컨설팅."
+>
+  <PageHeader
+    title="About OurDigital"
+    description="데이터로 진단하고, 실행으로 처방합니다"
+    breadcrumbs={[{ label: '소개' }]}
+  />
+
+  <!-- Vision Section -->
+  <section class="section">
+    <div class="container">
+      <div class="about-preview" style="align-items: flex-start;">
+        <div class="about-content" style="order: 1;">
+          <h2>우리 디지털 클리닉</h2>
+          <p class="lead" style="color: var(--o-green); margin-bottom: var(--space-5);">디지털 시대, 브랜드도 건강검진이 필요합니다.</p>
+          <p>몸이 아프면 병원에 갑니다. 증상을 진단하고, 원인을 찾고, 처방을 받습니다. 그런데 디지털에서 브랜드가 아플 때는 어디로 가야 할까요?</p>
+          <p>OurDigital Clinic은 디지털 환경에서 브랜드의 건강을 진단하고, 데이터 기반의 처방을 내리는 곳입니다. 막연한 감이 아닌 정확한 데이터로 현재 상태를 파악하고, 검증된 프레임워크로 개선 방향을 제시합니다.</p>
+          <p>25년간 디지털 마케팅 현장에서 쌓은 경험과 과학적 접근법을 결합해, SMB와 프리랜서, 비영리단체가 데이터 기반 마케팅의 혜택을 누릴 수 있도록 돕습니다.</p>
+        </div>
+        <div class="about-image" style="order: 2;">
+          <i data-lucide="stethoscope" width="64" height="64" style="color: var(--o-green);"></i>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Founder Section -->
+  <section class="section section-gray">
+    <div class="container">
+      <div class="about-preview">
+        <div class="about-image">
+          <img src="https://via.placeholder.com/400x400?text=Andrew+Yim" alt="Andrew Yim">
+        </div>
+        <div class="about-content">
+          <span class="overline">Founder & Lead Consultant</span>
+          <h2>임명재 (Andrew Yim)</h2>
+          <p class="lead" style="color: var(--o-green);">Dr.D — 데이터 인텔리전스로 브랜드 경험을 그리는 마케팅 사이언티스트</p>
+          <p>인터넷의 탄생과 디지털 전환의 전과정을 함께하며, 디지털 전략가로서, 캠페인 디렉터로서 25년간 마케팅 현장에서 열정을 쏟았습니다.</p>
+          <p>GS칼텍스, 조선호텔, 코카-콜라, 아우디폭스바겐, 아모레퍼시픽 등 다양한 기업의 디지털 전략과 캠페인을 이끌었고, 청와대 디지털 소통센터 여론 분석 연구, 서울시 소셜특별시 프로젝트 등 공공 영역에서도 경험을 쌓았습니다.</p>
+
+          <div style="margin-top: var(--space-6);">
+            <h4 style="margin-bottom: var(--space-3);">자격증</h4>
+            <div style="display: flex; gap: var(--space-2); flex-wrap: wrap;">
+              <span style="background: var(--o-gray); padding: var(--space-1) var(--space-3); border-radius: var(--radius-sm); font-size: 0.875rem;">Google Analytics Certified</span>
+              <span style="background: var(--o-gray); padding: var(--space-1) var(--space-3); border-radius: var(--radius-sm); font-size: 0.875rem;">Google Ads Certified</span>
+              <span style="background: var(--o-gray); padding: var(--space-1) var(--space-3); border-radius: var(--radius-sm); font-size: 0.875rem;">Google Data Analytics</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline Section -->
+  <section class="section">
+    <div class="container container-sm">
+      <SectionHeader
+        title="Journey"
+        description="25년의 디지털 마케팅 여정"
+      />
+
+      <div class="timeline">
+        {timeline.map((item) => (
+          <div class="timeline-item">
+            <span class="timeline-year">{item.year}</span>
+            <h4>{item.title}</h4>
+            <p>{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Clients Section -->
+  <section class="section section-gray">
+    <div class="container">
+      <SectionHeader
+        title="함께한 고객사"
+        description="다양한 산업의 기업들과 협업했습니다"
+      />
+
+      <div class="grid grid-3">
+        {clients.map((client) => (
+          <div class="card">
+            <h4 class="card-title">{client.category}</h4>
+            <p class="card-text">{client.names}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>함께 일하고 싶으신가요?</h2>
+      <p>디지털 마케팅의 고민, 부담 없이 나눠주세요.</p>
+      <div class="cta-buttons">
+        <a href="/contact" class="btn btn-primary btn-lg">상담 신청하기</a>
+        <a href="/services" class="btn btn-outline-white btn-lg">서비스 살펴보기</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
