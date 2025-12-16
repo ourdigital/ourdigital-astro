@@ -1,0 +1,329 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import PageHeader from '@components/PageHeader.astro';
+import SectionHeader from '@components/SectionHeader.astro';
+
+const primaryColors = [
+  { name: 'O.Black', hex: '#221814', usage: 'Primary text, headings' },
+  { name: 'O.Olive', hex: '#cedc00', usage: 'Primary accent, CTAs' },
+  { name: 'O.Green', hex: '#287379', usage: 'Secondary accent' },
+  { name: 'O.Blue', hex: '#0075c0', usage: 'Links, interactions' },
+  { name: 'O.Beige', hex: '#f2f2de', usage: 'Background, subtle fills' }
+];
+
+const secondaryColors = [
+  { name: 'O.Gray', hex: '#ebebeb', usage: 'Backgrounds, borders' },
+  { name: 'O.Border', hex: '#cdcac8', usage: 'Dividers, borders' },
+  { name: 'O.Yellow', hex: '#ffe100', usage: 'Highlights, alerts' },
+  { name: 'O.Orange', hex: '#f1a615', usage: 'Warnings, emphasis' },
+  { name: 'O.Skyblue', hex: '#21a8bc', usage: 'Info, secondary actions' }
+];
+
+const channels = [
+  { name: 'Business Hub', domain: 'ourdigital.org', role: 'Services & Consulting', tone: 'Professional, analytical' },
+  { name: 'Blog', domain: 'blog.ourdigital.org', role: 'Knowledge & Thought Leadership', tone: 'Educational, personal' },
+  { name: 'Journal', domain: 'journal.ourdigital.org', role: 'Creative Essays', tone: 'Conversational, poetic' },
+  { name: 'Stories', domain: 'ourstory.day', role: 'Personal Narratives', tone: 'Intimate, reflective' }
+];
+
+const services = [
+  { title: 'SEO & Digital Growth', description: 'Technical optimization, content SEO, entity strategy' },
+  { title: 'Content Marketing & Strategy', description: 'Topic development, editorial systems, brand voice' },
+  { title: 'Performance Marketing & Analytics', description: 'GA4 setup, dashboard creation, attribution' },
+  { title: 'Brand Intelligence', description: 'AORI Framework (Authority, Outreach, Relevance, Influence)' }
+];
+---
+
+<BaseLayout
+  title="Brand Guide"
+  description="OurDigital Clinic 브랜드 가이드. 브랜드 아이덴티티, 컬러 팔레트, 타이포그래피, 채널 생태계."
+>
+  <PageHeader
+    title="Brand Guide"
+    description="OurDigital Clinic 브랜드 아이덴티티 가이드"
+    breadcrumbs={[{ label: 'Brand Guide' }]}
+  />
+
+  <!-- Brand Identity Section -->
+  <section class="section">
+    <div class="container">
+      <SectionHeader
+        overline="Brand Identity"
+        title="우리 디지털 클리닉"
+        description="Your Digital Health Partner"
+      />
+
+      <div class="grid grid-2" style="gap: var(--space-8);">
+        <div>
+          <h3>Master Brand</h3>
+          <p style="font-size: 1.25rem; font-weight: 600; margin-bottom: var(--space-2);">OurDigital Clinic</p>
+          <p style="color: var(--o-green);">우리 디지털 클리닉</p>
+        </div>
+        <div>
+          <h3>Tagline</h3>
+          <p style="font-size: 1.25rem; font-weight: 600; margin-bottom: var(--space-2);">"Your Digital Health Partner"</p>
+          <p style="color: var(--o-green);">"데이터로 처방합니다"</p>
+        </div>
+      </div>
+
+      <div style="margin-top: var(--space-10);">
+        <h3>Mission</h3>
+        <p class="lead">중소기업, 자영업자, 프리랜서, 비영리단체의 마케팅 과제를 체계적인 진단-처방-측정 접근법으로 지원합니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Values Section -->
+  <section class="section section-gray">
+    <div class="container">
+      <SectionHeader
+        overline="Core Values"
+        title="핵심 가치"
+        description="Precision + Empathy + Evidence"
+      />
+
+      <div class="grid grid-3">
+        <div class="card" style="text-align: center;">
+          <div style="margin-bottom: var(--space-4);">
+            <i data-lucide="database" width="48" height="48" style="color: var(--o-olive);"></i>
+          </div>
+          <h4>Data-driven</h4>
+          <p>데이터 중심</p>
+        </div>
+        <div class="card" style="text-align: center;">
+          <div style="margin-bottom: var(--space-4);">
+            <i data-lucide="rocket" width="48" height="48" style="color: var(--o-olive);"></i>
+          </div>
+          <h4>In-Action</h4>
+          <p>실행 지향</p>
+        </div>
+        <div class="card" style="text-align: center;">
+          <div style="margin-bottom: var(--space-4);">
+            <i data-lucide="flask-conical" width="48" height="48" style="color: var(--o-olive);"></i>
+          </div>
+          <h4>Marketing Science</h4>
+          <p>마케팅 과학</p>
+        </div>
+      </div>
+
+      <div style="margin-top: var(--space-8); text-align: center;">
+        <p class="lead" style="color: var(--o-green);">Brand Positioning</p>
+        <p style="font-size: 1.125rem;">"진단-처방-측정 프로세스를 제공하는 디지털 마케팅 클리닉"</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Color Palette Section -->
+  <section class="section">
+    <div class="container">
+      <SectionHeader
+        overline="Visual Identity"
+        title="Color Palette"
+        description="브랜드 컬러 시스템"
+      />
+
+      <h3 style="margin-bottom: var(--space-4);">Primary Colors</h3>
+      <div class="color-grid">
+        {primaryColors.map((color) => (
+          <div class="color-card">
+            <div class="color-swatch" style={`background-color: ${color.hex};`}></div>
+            <div class="color-info">
+              <strong>{color.name}</strong>
+              <code>{color.hex}</code>
+              <span>{color.usage}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <h3 style="margin-top: var(--space-8); margin-bottom: var(--space-4);">Secondary Colors</h3>
+      <div class="color-grid">
+        {secondaryColors.map((color) => (
+          <div class="color-card">
+            <div class="color-swatch" style={`background-color: ${color.hex};`}></div>
+            <div class="color-info">
+              <strong>{color.name}</strong>
+              <code>{color.hex}</code>
+              <span>{color.usage}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Typography Section -->
+  <section class="section section-gray">
+    <div class="container">
+      <SectionHeader
+        overline="Typography"
+        title="타이포그래피"
+        description="브랜드 서체 시스템"
+      />
+
+      <div class="grid grid-2" style="gap: var(--space-8);">
+        <div class="card">
+          <h4>Korean</h4>
+          <p style="font-family: 'Noto Sans KR', sans-serif; font-size: 1.5rem; margin: var(--space-4) 0;">Noto Sans KR</p>
+          <p style="color: var(--text-secondary);">본문 텍스트, UI 요소</p>
+          <p style="font-size: 0.875rem; margin-top: var(--space-2);">Pretendard (대체 서체)</p>
+        </div>
+        <div class="card">
+          <h4>English</h4>
+          <p style="font-family: 'Inter', sans-serif; font-size: 1.5rem; margin: var(--space-4) 0;">Inter</p>
+          <p style="color: var(--text-secondary);">강조, 제목</p>
+          <p style="font-size: 0.875rem; margin-top: var(--space-2);">Noto Sans, Helvetica Neue (주석)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Channel Ecosystem Section -->
+  <section class="section">
+    <div class="container">
+      <SectionHeader
+        overline="Channel Ecosystem"
+        title="채널 생태계"
+        description="목적에 따른 채널 구분"
+      />
+
+      <div class="table-responsive">
+        <table class="brand-table">
+          <thead>
+            <tr>
+              <th>Channel</th>
+              <th>Domain</th>
+              <th>Role</th>
+              <th>Tone</th>
+            </tr>
+          </thead>
+          <tbody>
+            {channels.map((channel) => (
+              <tr>
+                <td><strong>{channel.name}</strong></td>
+                <td><code>{channel.domain}</code></td>
+                <td>{channel.role}</td>
+                <td>{channel.tone}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="section section-gray">
+    <div class="container">
+      <SectionHeader
+        overline="Key Services"
+        title="핵심 서비스"
+        description="4가지 전문 영역"
+      />
+
+      <div class="grid grid-2">
+        {services.map((service) => (
+          <div class="card">
+            <h4 style="color: var(--o-green);">{service.title}</h4>
+            <p>{service.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Founder Section -->
+  <section class="section">
+    <div class="container container-sm">
+      <SectionHeader
+        overline="Founder"
+        title="임명재 (Andrew Yim)"
+        description="Marketing Scientist"
+      />
+
+      <div class="card" style="text-align: center;">
+        <p style="font-size: 1.25rem; color: var(--o-green); margin-bottom: var(--space-4);">Dr.D</p>
+        <p>25년 이상의 디지털 마케팅 경험</p>
+        <div style="margin-top: var(--space-4); display: flex; gap: var(--space-2); flex-wrap: wrap; justify-content: center;">
+          <span style="background: var(--o-gray); padding: var(--space-1) var(--space-3); border-radius: var(--radius-sm); font-size: 0.875rem;">Google Data Analytics</span>
+          <span style="background: var(--o-gray); padding: var(--space-1) var(--space-3); border-radius: var(--radius-sm); font-size: 0.875rem;">Advanced Analytics</span>
+          <span style="background: var(--o-gray); padding: var(--space-1) var(--space-3); border-radius: var(--radius-sm); font-size: 0.875rem;">BI Professional</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .color-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--space-4);
+  }
+
+  .color-card {
+    background: white;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .color-swatch {
+    height: 80px;
+    width: 100%;
+  }
+
+  .color-info {
+    padding: var(--space-3);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .color-info code {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+  }
+
+  .color-info span {
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+  }
+
+  .table-responsive {
+    overflow-x: auto;
+  }
+
+  .brand-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .brand-table th,
+  .brand-table td {
+    padding: var(--space-4);
+    text-align: left;
+    border-bottom: 1px solid var(--o-border);
+  }
+
+  .brand-table th {
+    background: var(--o-black);
+    color: white;
+    font-weight: 600;
+  }
+
+  .brand-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .brand-table code {
+    background: var(--o-gray);
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-sm);
+    font-size: 0.875rem;
+  }
+</style>
